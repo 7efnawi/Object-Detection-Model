@@ -1,0 +1,49 @@
+# Ignore specific directories
+annotations/
+COCO_small/
+labels/
+train2017/
+val2017/
+yolov5/
+
+# Ignore specific files
+coco2yolo.py
+MY_coco_yolov5.yaml
+MY_coco30_yolov5.yaml
+val2017.cache
+COCO.ipynb
+
+# Ignore common Python files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environment
+venv/
+ENV/
+
+# Ignore IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
