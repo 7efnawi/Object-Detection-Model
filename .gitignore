@@ -1,15 +1,11 @@
 # Ignore specific directories
-annotations/
 COCO_small/
 labels/
 train2017/
 val2017/
-yolov5/
 
 # Ignore specific files
-coco2yolo.py
 MY_coco_yolov5.yaml
-MY_coco30_yolov5.yaml
 val2017.cache
 COCO.ipynb
 
