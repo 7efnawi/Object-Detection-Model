@@ -1,4 +1,5 @@
 # Ignore specific directories
+annotations/
 COCO_small/
 labels/
 train2017/
