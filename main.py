@@ -5,6 +5,7 @@ import torch
 from pathlib import Path
 from PIL import Image
 import io
+import sys
 import os
 import torchvision.transforms as T
 
@@ -16,12 +17,14 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 try:
     # Get the current directory
     current_dir = os.path.dirname(os.path.abspath(__file__))
+    yolov5_dir = os.path.join(current_dir, 'yolov5')
+    if yolov5_dir not in sys.path:
+        sys.path.append(yolov5_dir)
     model_path = os.path.join(current_dir, 'best.pt')
-    
-    # Load YOLOv5 model
+    from yolov5.models.common import DetectMultiBackend
+    import torch
     print(f"Loading model from: {model_path}")
-    model = torch.hub.load('7efnawi/Object-Detection-Model', 'custom', path=model_path, force_reload=True)
-    model.to(device)
+    model = DetectMultiBackend(model_path, device=device)
     model.eval()
     print("Model loaded successfully!")
 except Exception as e:
