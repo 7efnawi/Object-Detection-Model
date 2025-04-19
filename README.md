@@ -109,14 +109,22 @@ Then open [http://localhost:6006](http://localhost:6006) in your browser.
 
 ---
 
-## 🚀 Deployment (Coming Soon)
+## 🚀 النشر على Render (تعليمات سريعة)
 
-The model can be deployed via:
+1. قم بإنشاء حساب مجاني على [Render.com](https://render.com/).
+2. أنشئ خدمة Web Service جديدة، واربطها بمستودع المشروع (GitHub أو ارفع الملفات يدويًا).
+3. في إعدادات الخدمة:
+   - **Environment**: Python 3.10 أو أعلى
+   - **Start Command**:
+     ```bash
+     uvicorn main:app --host 0.0.0.0 --port 10000
+     ```
+   - **Build Command**: اتركه فارغًا أو `pip install -r requirements.txt`
+   - **Port**: 10000 (أو حسب ما تحدده Render)
+4. ارفع ملف النموذج `best.pt` مع باقي الملفات.
+5. بعد النشر، استخدم الرابط الذي توفره Render للوصول إلى واجهة الـ API.
 
-- **FastAPI** or **Flask REST API**
-- **Streamlit Web App**
-- **Dockerized API**
-- **Cloud Deployment**: Render, Railway, Hugging Face Spaces
+> **ملاحظة:** إذا واجهت مشاكل في تحميل النموذج، تأكد أن حجم الملف لا يتجاوز الحد المسموح في Render (حاليًا 1GB للملفات الفردية).
 
 ---
 
