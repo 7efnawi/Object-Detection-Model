@@ -109,14 +109,22 @@ Then open [http://localhost:6006](http://localhost:6006) in your browser.
 
 ---
 
-## 🚀 Deployment (Coming Soon)
+## 🚄 النشر على Railway (تعليمات سريعة)
 
-The model can be deployed via:
+1. أنشئ حساب مجاني على [Railway](https://railway.app/).
+2. أنشئ مشروع جديد واربطه بمستودع المشروع (GitHub أو ارفع الملفات يدويًا).
+3. في إعدادات الخدمة:
+   - **Environment**: Python 3.10 أو أعلى
+   - **Start Command**:
+     ```bash
+     uvicorn main:app --host 0.0.0.0 --port $PORT
+     ```
+   - **Install Command**: `pip install -r requirements.txt`
+   - **Port**: اتركه افتراضيًا (Railway يحدد المتغير PORT تلقائيًا)
+4. ارفع ملف النموذج `best.pt` مع باقي الملفات.
+5. بعد النشر، استخدم الرابط الذي توفره Railway للوصول إلى واجهة الـ API.
 
-- **FastAPI** or **Flask REST API**
-- **Streamlit Web App**
-- **Dockerized API**
-- **Cloud Deployment**: Render, Railway, Hugging Face Spaces
+> **ملاحظة:** إذا واجهت مشاكل في تحميل النموذج، تأكد أن حجم الملف لا يتجاوز الحد المسموح في Railway (عادةً 500MB للملفات الفردية في الخطة المجانية).
 
 ---
 
