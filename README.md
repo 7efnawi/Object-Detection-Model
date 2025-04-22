@@ -109,14 +109,22 @@ Then open [http://localhost:6006](http://localhost:6006) in your browser.
 
 ---
 
-## 🚀 Deployment (Coming Soon)
+## 🚄 النشر على Railway (تعليمات سريعة)
 
-The model can be deployed via:
+1. أنشئ حساب مجاني على [Railway](https://railway.app/).
+2. أنشئ مشروع جديد واربطه بمستودع المشروع (GitHub أو ارفع الملفات يدويًا).
+3. في إعدادات الخدمة:
+   - **Environment**: Python 3.10 أو أعلى
+   - **Start Command**:
+     ```bash
+     uvicorn main:app --host 0.0.0.0 --port $PORT
+     ```
+   - **Install Command**: `pip install -r requirements.txt`
+   - **Port**: اتركه افتراضيًا (Railway يحدد المتغير PORT تلقائيًا)
+4. ارفع ملف النموذج `best.pt` مع باقي الملفات.
+5. بعد النشر، استخدم الرابط الذي توفره Railway للوصول إلى واجهة الـ API.
 
-- **FastAPI** or **Flask REST API**
-- **Streamlit Web App**
-- **Dockerized API**
-- **Cloud Deployment**: Render, Railway, Hugging Face Spaces
+> **ملاحظة:** إذا واجهت مشاكل في تحميل النموذج، تأكد أن حجم الملف لا يتجاوز الحد المسموح في Railway (عادةً 500MB للملفات الفردية في الخطة المجانية).
 
 ---
 
@@ -158,3 +166,41 @@ Feel free to fork or contribute!
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🖥️ استخدام واجهة الـ API (FastAPI)
+
+بعد نشر المشروع على Railway أو أي سيرفر يدعم Python، يمكنك إرسال صورة إلى نقطة النهاية `/predict` للحصول على نتائج الكشف عن الأجسام.
+
+### مثال على الطلب باستخدام `curl`:
+
+```bash
+curl -X POST "https://YOUR-RAILWAY-URL/predict" \
+  -H "accept: application/json" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@path/to/image.jpg"
+```
+
+### مثال على الاستجابة:
+```json
+{
+  "results": [
+    {
+      "xmin": 123.4,
+      "ymin": 56.7,
+      "xmax": 234.5,
+      "ymax": 167.8,
+      "confidence": 0.92,
+      "class": 0,
+      "name": "person"
+    },
+    ...
+  ]
+}
+```
+
+- **YOUR-RAILWAY-URL**: استبدلها برابط الخدمة الخاص بك على Railway.
+- كل عنصر في results يمثل كائنًا مكتشفًا مع إحداثيات الصندوق، الثقة، ورقم/اسم الفئة.
+
+---
