@@ -2,85 +2,171 @@
 
 <div align="center">
   <img src="https://miro.medium.com/v2/resize:fit:1400/1*QOGcQM9G4dFAYJq-RK0YYg.png" alt="Object Detection Banner" width="800"/>
-  <p><i>Comprehensive Technical Documentation | Version 1.0.0</i></p>
+  
+  <h2>🔍 Real-time Object Detection with YOLOv5</h2>
+  
+  <p><strong>Comprehensive Technical Documentation | Version 1.0.0</strong></p>
+  
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.9%2B-blue.svg?style=for-the-badge&logo=python" alt="Python 3.9+"/>
+    <img src="https://img.shields.io/badge/Framework-Flask-red.svg?style=for-the-badge&logo=flask" alt="Flask"/>
+    <img src="https://img.shields.io/badge/Model-YOLOv5-brightgreen.svg?style=for-the-badge&logo=pytorch" alt="YOLOv5"/>
+    <img src="https://img.shields.io/badge/Deployment-Railway-blueviolet.svg?style=for-the-badge&logo=railway" alt="Railway"/>
+  </p>
+  
+  <hr style="width: 80%; border: 1px solid #ddd;">
 </div>
 
 ## 📋 Table of Contents
 
-- [Introduction](#-introduction)
-- [System Architecture](#-system-architecture)
-- [Installation Guide](#-installation-guide)
-- [Dataset Information](#-dataset-information)
-- [API Reference](#-api-reference)
-- [Development Guide](#-development-guide)
-- [Deployment Guide](#-deployment-guide)
-- [Performance Optimization](#-performance-optimization)
-- [Troubleshooting](#-troubleshooting)
-- [Frequently Asked Questions](#-frequently-asked-questions)
-- [Contributing](#-contributing)
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+  <div>
+    <ul>
+      <li><a href="#-introduction"><b>🔍 Introduction</b></a></li>
+      <li><a href="#-system-architecture"><b>🏗 System Architecture</b></a></li>
+      <li><a href="#-installation-guide"><b>🛠️ Installation Guide</b></a></li>
+      <li><a href="#-dataset-information"><b>📊 Dataset Information</b></a></li>
+      <li><a href="#-api-reference"><b>🔌 API Reference</b></a></li>
+    </ul>
+  </div>
+  <div>
+    <ul>
+      <li><a href="#-development-guide"><b>💻 Development Guide</b></a></li>
+      <li><a href="#-deployment-guide"><b>🚀 Deployment Guide</b></a></li>
+      <li><a href="#-performance-optimization"><b>⚡ Performance Optimization</b></a></li>
+      <li><a href="#-troubleshooting"><b>🛑 Troubleshooting</b></a></li>
+      <li><a href="#-frequently-asked-questions"><b>❓ Frequently Asked Questions</b></a></li>
+      <li><a href="#-contributing"><b>👥 Contributing</b></a></li>
+    </ul>
+  </div>
+</div>
 
 <br>
 
 ## 🔍 Introduction
 
-The YOLOv5 Object Detection API is a high-performance REST API for real-time object detection in images. Built on top of the state-of-the-art YOLOv5 model trained on the COCO dataset, this service provides accurate object detection with minimal latency.
+<img align="right" src="https://user-images.githubusercontent.com/26833433/127574988-6a558aa1-d268-44b9-bf6b-62d4c605cc72.jpg" width="350">
 
-### Key Features
+The **YOLOv5 Object Detection API** is a high-performance REST API for real-time object detection in images. Built on top of the state-of-the-art YOLOv5 model trained on the COCO dataset, this service provides accurate object detection with minimal latency.
 
-- **Real-time Detection**: Process images and return results with minimal latency
-- **High Accuracy**: Based on YOLOv5 with mAP@0.5 of ~0.54+
-- **Scalable Architecture**: Designed to handle multiple concurrent requests
-- **Background Model Loading**: Responsive API even during model initialization
-- **Easy Deployment**: Optimized for Railway platform with Docker support
-- **Comprehensive Error Handling**: Robust error reporting and fault tolerance
+This project delivers:
+
+- A ready-to-use API for object detection
+- A complete deployment pipeline
+- Comprehensive documentation for developers
+- Performance optimization guidelines
+
+### ✨ Key Features
+
+<table>
+  <tr>
+    <td width="50%">
+      <h4>⚡️ Real-time Detection</h4>
+      Process images and return results with minimal latency
+    </td>
+    <td width="50%">
+      <h4>🧠 Advanced Model</h4>
+      Based on YOLOv5 with mAP@0.5 of ~0.54+
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h4>📊 High Accuracy</h4>
+      Precision ~0.63, Recall ~0.47+
+    </td>
+    <td width="50%">
+      <h4>🌐 RESTful API</h4>
+      Simple and fully documented endpoints
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h4>🔄 Background Model Loading</h4>
+      Responsive API even during model initialization
+    </td>
+    <td width="50%">
+      <h4>🚂 Easy Deployment</h4>
+      Optimized for Railway platform with Docker support
+    </td>
+  </tr>
+</table>
 
 <br>
 
 ## 🏗 System Architecture
 
-The system follows a modular architecture with the following components:
+<div align="center">
+  <img src="https://mermaid.ink/img/pako:eNp1ksFugzAMhl_F8qnTpL1BL1MvPVXaYZcpyhKDUUlClFBtQrz7AqVsGtuJxP_n3_bvDFIVCBLkZ2NrUa_8h1ZGc6skzZXduPM3hbQxsKWj-jjE9w-jraUvdVK2hnbmCnacLy3RN6k0JfMhL8EFp2ftEcCFqKUmYLIAZuqSEOyYRIB2-TL8w5PtHyJXdlnQQnpXeKXrLJOuaWet1qyh_iP48VLtOvVVUqW9XzLvsP046TrEgTQNvdQm1R_qf-P1dBqNw-MNZ8bGH6NRHyNI0cArFcrSBQFZWsdkTjddSdpAxm4T27LmLTb0CbJ3VtWQx4vJ3TCOorspipw9Cs6d-OV-Zr8s13w7TReT8BZHURzN5tFsPvsBGS9mqQ" alt="System Architecture" width="800"/>
+</div>
 
-### High-Level Architecture
+The system follows a modular architecture designed for scalability, reliability, and ease of maintenance.
 
-```
-┌────────────────┐    ┌────────────────┐    ┌────────────────┐
-│                │    │                │    │                │
-│  HTTP Request  │───▶│  Flask Server  │───▶│  YOLOv5 Model  │
-│                │    │                │    │                │
-└────────────────┘    └────────────────┘    └────────────────┘
-                              │                      │
-                              ▼                      ▼
-                      ┌────────────────┐    ┌────────────────┐
-                      │                │    │                │
-                      │  JSON Response │◀───│  Detection     │
-                      │                │    │  Processing    │
-                      └────────────────┘    └────────────────┘
-```
+### 🔄 Request Flow
 
-### Components
+1. **Client sends an HTTP request** with an image to analyze
+2. **Flask Web Server** receives the request and validates the input
+3. **YOLOv5 Model** processes the image and detects objects
+4. **Processing logic** converts model output to standardized JSON format
+5. **Response** is sent back to the client with detection results
 
-1. **Flask Web Server**
+### 🧩 Core Components
 
-   - Handles HTTP requests and responses
-   - Manages concurrent connections
-   - Provides health checks for the deployment platform
+<table>
+  <tr>
+    <th width="20%" style="background-color: #4CAF50; color: white;">Component</th>
+    <th style="background-color: #4CAF50; color: white;">Description</th>
+    <th width="25%" style="background-color: #4CAF50; color: white;">Key Features</th>
+  </tr>
+  <tr>
+    <td><b>🖥️ Flask Web Server</b></td>
+    <td>Lightweight Python web framework that serves the API endpoints and handles HTTP requests/responses</td>
+    <td>
+      • RESTful endpoints<br>
+      • Request validation<br>
+      • Error handling
+    </td>
+  </tr>
+  <tr>
+    <td><b>⚙️ Background Model Loader</b></td>
+    <td>Asynchronous component that loads the YOLOv5 model in a separate thread to prevent blocking the application startup</td>
+    <td>
+      • Non-blocking design<br>
+      • Status monitoring<br>
+      • Error reporting
+    </td>
+  </tr>
+  <tr>
+    <td><b>🧠 YOLOv5 Detection Engine</b></td>
+    <td>State-of-the-art object detection model that processes images and identifies objects with their locations</td>
+    <td>
+      • Fast inference<br>
+      • 80 object classes<br>
+      • High accuracy
+    </td>
+  </tr>
+  <tr>
+    <td><b>📊 Response Handler</b></td>
+    <td>Component that formats the model outputs into standardized JSON responses and handles different response scenarios</td>
+    <td>
+      • JSON formatting<br>
+      • Error responses<br>
+      • Metadata inclusion
+    </td>
+  </tr>
+</table>
 
-2. **Background Model Loader**
+### 🔐 Security Design
 
-   - Uses threading to load the YOLOv5 model asynchronously
-   - Enables the API to respond to requests during model initialization
-   - Monitors model loading status and reports errors
+The API implements several security measures:
 
-3. **YOLOv5 Detection Engine**
+- Input validation to prevent malicious file uploads
+- Response sanitization to prevent data leakage
+- Rate limiting to prevent DoS attacks
+- Stateless design for horizontal scaling
 
-   - Processes images using the pre-trained model
-   - Converts model outputs to normalized coordinates
-   - Maps class IDs to human-readable labels
-
-4. **Response Handler**
-   - Formats detection results as JSON
-   - Provides standardized error responses
-   - Includes metadata about the detection process
+<div class="note" style="background-color: #f8f9fa; border-left: 4px solid #007bff; padding: 10px; margin: 10px 0;">
+  <b>💡 Note:</b> For high-traffic deployments, consider implementing a load balancer in front of multiple API instances to improve throughput and reliability.
+</div>
 
 <br>
 
@@ -165,112 +251,304 @@ The server will be accessible at http://localhost:8000
 
 ## 📊 Dataset Information
 
-### COCO Dataset Overview
+<div align="center">
+  <img src="https://cocodataset.org/images/coco-logo.png" height="100" alt="COCO Dataset Logo">
+  <h3>Common Objects in Context (COCO) Dataset</h3>
+</div>
 
-This project uses the Common Objects in Context (COCO) dataset, which is a large-scale object detection, segmentation, and captioning dataset. The complete dataset used for training is located at:
+This project uses the **COCO dataset**, a large-scale object detection, segmentation, and captioning dataset that has become the standard benchmark in computer vision tasks.
 
-```
-D:\NCT\NCT-2\S2\Capston\DataSets\COCO
-```
+<div class="info-box" style="display: flex; margin-bottom: 20px; background-color: #f8f9fa; border-radius: 5px; overflow: hidden;">
+  <div style="padding: 15px; background-color: #e9ecef; width: 30%;">
+    <h4>📁 Dataset Location</h4>
+    <p>The complete dataset used for training is located at:</p>
+    <code>D:\NCT\NCT-2\S2\Capston\DataSets\COCO</code>
+  </div>
+  <div style="padding: 15px; width: 70%;">
+    <h4>📈 Dataset Statistics</h4>
+    <ul>
+      <li><b>Training Images:</b> ~118,000 images</li>
+      <li><b>Validation Images:</b> ~5,000 images</li>
+      <li><b>Categories:</b> 80 object categories</li>
+      <li><b>Annotations:</b> >200,000 labeled images</li>
+      <li><b>Project Usage:</b> ~60% of COCO (balanced across classes)</li>
+    </ul>
+  </div>
+</div>
 
-### Dataset Structure
+### 📂 Dataset Structure
 
-The COCO dataset is structured as follows:
+The COCO dataset follows a standardized structure:
 
 ```
 COCO/
-├── annotations/           # JSON annotation files
+│
+├── 📁 annotations/              # JSON annotation files
 │   ├── instances_train2017.json
 │   └── instances_val2017.json
 │
-├── train2017/             # Training images (118K images)
+├── 📁 train2017/                # Training images (118K images)
 │   └── [image files]
 │
-├── val2017/               # Validation images (5K images)
+├── 📁 val2017/                  # Validation images (5K images)
 │   └── [image files]
 │
-└── labels/                # YOLO format labels
+└── 📁 labels/                   # YOLO format labels
     ├── train2017/
     └── val2017/
 ```
 
-### Dataset Usage
+### 🏷️ Object Classes
 
-For this project, we use:
+The model detects 80 different object classes from the COCO dataset, organized into 12 super-categories:
 
-- Approximately 60% of the COCO dataset (balanced across classes)
-- Images are processed at 640x640 resolution
-- All 80 standard COCO classes are supported:
-  - Person, bicycle, car, motorcycle, airplane, bus, train, truck, boat...
-  - Full list of classes is available in the `MY_coco30_yolov5.yaml` file
+<table>
+  <tr>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Person</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Vehicle</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Outdoor</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Animal</th>
+  </tr>
+  <tr>
+    <td>👤 person</td>
+    <td></td>
+    <td>🚗 car</td>
+    <td>✈️ airplane</td>
+    <td>🚦 traffic light</td>
+    <td>🔥 fire hydrant</td>
+    <td>🐱 cat</td>
+    <td>🐶 dog</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>🚲 bicycle</td>
+    <td>🚂 train</td>
+    <td>🛑 stop sign</td>
+    <td>⛽ parking meter</td>
+    <td>🐴 horse</td>
+    <td>🐑 sheep</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td>🏍️ motorcycle</td>
+    <td>🚌 bus</td>
+    <td>🪑 bench</td>
+    <td></td>
+    <td>🐄 cow</td>
+    <td>🐘 elephant</td>
+  </tr>
+  <tr>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Accessory</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Sports</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Kitchen</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Food</th>
+  </tr>
+  <tr>
+    <td>👜 handbag</td>
+    <td>👔 tie</td>
+    <td>⚽ sports ball</td>
+    <td>🏄 surfboard</td>
+    <td>🍼 bottle</td>
+    <td>🍷 wine glass</td>
+    <td>🍎 apple</td>
+    <td>🍊 orange</td>
+  </tr>
+  <tr>
+    <td>🎒 backpack</td>
+    <td>👒 hat</td>
+    <td>🏸 tennis racket</td>
+    <td>⛷️ skis</td>
+    <td>🍽️ plate</td>
+    <td>🥄 spoon</td>
+    <td>🥪 sandwich</td>
+    <td>🥦 broccoli</td>
+  </tr>
+  <tr>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Furniture</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Electronic</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Appliance</th>
+    <th colspan="2" style="background-color: #4a5568; color: white;">Indoor</th>
+  </tr>
+  <tr>
+    <td>🛋️ couch</td>
+    <td>🪑 chair</td>
+    <td>📱 cell phone</td>
+    <td>💻 laptop</td>
+    <td>📺 tv</td>
+    <td>🔦 lamp</td>
+    <td>📚 book</td>
+    <td>🕰️ clock</td>
+  </tr>
+  <tr>
+    <td>🛏️ bed</td>
+    <td>🪴 potted plant</td>
+    <td>🖥️ computer</td>
+    <td>🖨️ printer</td>
+    <td>⌨️ keyboard</td>
+    <td>🔌 power outlet</td>
+    <td>🧸 teddy bear</td>
+    <td>🏺 vase</td>
+  </tr>
+</table>
 
-### Custom Dataset Configuration
+### ⚙️ Custom Dataset Configuration
 
 The model was trained using a custom configuration specified in `MY_coco30_yolov5.yaml`, which defines:
 
-- Dataset paths (relative to the project root)
-- Number of classes (80)
-- Names of each class
-- Train/validation split
+<div style="display: flex; gap: 20px;">
+  <div style="flex: 1; background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+    <h4>🗂️ File Structure</h4>
+    <ul>
+      <li>Dataset paths (relative to project root)</li>
+      <li>Train/val split configuration</li>
+      <li>Image directory organization</li>
+      <li>Annotation format specifications</li>
+    </ul>
+  </div>
+  <div style="flex: 1; background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+    <h4>🧮 Model Parameters</h4>
+    <ul>
+      <li>Number of classes (80)</li>
+      <li>Class names and mappings</li>
+      <li>Anchor configurations</li>
+      <li>Image dimensions (640x640)</li>
+    </ul>
+  </div>
+</div>
 
-If you want to retrain the model on your own data, you'll need to modify this YAML file to point to your dataset location.
+<div class="note" style="background-color: #f4f0ec; border-left: 4px solid #a1887f; padding: 15px; margin: 20px 0; border-radius: 3px;">
+  <h4>📝 Note on Retraining</h4>
+  <p>If you want to retrain the model on your own data, modify the <code>MY_coco30_yolov5.yaml</code> file to point to your dataset location and adjust class configurations as needed.</p>
+</div>
 
 <br>
 
 ## 🔌 API Reference
 
-### API Endpoints
+<div align="center">
+  <img src="https://i.imgur.com/rEXcoMn.png" width="90%" alt="API Flow Diagram">
+  <p><i>Object Detection API Flow Diagram</i></p>
+</div>
 
-#### 1. Main Endpoint
+This section provides a comprehensive reference for all API endpoints, request formats, and response structures.
 
-Provides information about the API and model status.
+### 🔍 API Endpoints Overview
 
-- **URL**: `/`
-- **Method**: GET
-- **Response Example**:
+<table>
+  <tr>
+    <th style="background-color: #4a5568; color: white;">Endpoint</th>
+    <th style="background-color: #4a5568; color: white;">Method</th>
+    <th style="background-color: #4a5568; color: white;">Description</th>
+    <th style="background-color: #4a5568; color: white;">Authentication</th>
+  </tr>
+  <tr>
+    <td><code>/</code></td>
+    <td><span style="color: green;">GET</span></td>
+    <td>Root endpoint - provides API status information</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td><code>/health</code></td>
+    <td><span style="color: green;">GET</span></td>
+    <td>Health check endpoint for monitoring</td>
+    <td>None</td>
+  </tr>
+  <tr>
+    <td><code>/predict</code></td>
+    <td><span style="color: blue;">POST</span></td>
+    <td>Main object detection endpoint</td>
+    <td>None</td>
+  </tr>
+</table>
 
-```json
-{
+### 📋 Detailed Endpoint Specifications
+
+#### 1. Root Endpoint
+
+<div style="display: flex; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+  <div style="width: 30%; background-color: #f7fafc; padding: 15px; border-right: 1px solid #e2e8f0;">
+    <h4>Endpoint Information</h4>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><b>URL:</b> <code>/</code></li>
+      <li><b>Method:</b> <span style="color: green;">GET</span></li>
+      <li><b>Auth Required:</b> No</li>
+      <li><b>Rate Limit:</b> 100 requests/min</li>
+    </ul>
+  </div>
+  <div style="width: 70%; padding: 15px;">
+    <h4>Description</h4>
+    <p>Provides information about the API status and model readiness. Use this endpoint to check if the model is loaded and ready for inference.</p>
+    
+    <h5>Response Example:</h5>
+    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;"><code>{
   "message": "YOLOv5 Object Detection API",
   "model_status": "loaded",
   "error": null
-}
-```
+}</code></pre>
+    
+    <h5>Status Values:</h5>
+    <ul>
+      <li><code>"loading"</code>: Model is currently being loaded</li>
+      <li><code>"loaded"</code>: Model is ready for inference</li>
+      <li><code>"failed"</code>: Model failed to load (error will contain details)</li>
+    </ul>
+  </div>
+</div>
 
-- **Possible model_status values**:
-  - `"loading"`: Model is currently being loaded
-  - `"loaded"`: Model is ready for inference
-  - `"failed"`: Model failed to load (error will contain details)
+#### 2. Health Check Endpoint
 
-#### 2. Health Check
-
-Used by deployment platforms to verify the service is running.
-
-- **URL**: `/health`
-- **Method**: GET
-- **Response Example**:
-
-```json
-{
+<div style="display: flex; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+  <div style="width: 30%; background-color: #f7fafc; padding: 15px; border-right: 1px solid #e2e8f0;">
+    <h4>Endpoint Information</h4>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><b>URL:</b> <code>/health</code></li>
+      <li><b>Method:</b> <span style="color: green;">GET</span></li>
+      <li><b>Auth Required:</b> No</li>
+      <li><b>Rate Limit:</b> 100 requests/min</li>
+    </ul>
+  </div>
+  <div style="width: 70%; padding: 15px;">
+    <h4>Description</h4>
+    <p>Simple health check endpoint used by monitoring systems and deployment platforms to verify the service is running. This endpoint will always return a success response, even if the model is still loading.</p>
+    
+    <h5>Response Example:</h5>
+    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;"><code>{
   "status": "ok"
-}
-```
+}</code></pre>
+  </div>
+</div>
 
-#### 3. Object Detection
+#### 3. Object Detection Endpoint
 
-The main endpoint for detecting objects in images.
-
-- **URL**: `/predict`
-- **Method**: POST
-- **Content-Type**: multipart/form-data
-- **Parameters**:
-
-  - `file`: The image file to analyze (required)
-
-- **Success Response Example**:
-
-```json
-{
+<div style="display: flex; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 20px;">
+  <div style="width: 30%; background-color: #f7fafc; padding: 15px; border-right: 1px solid #e2e8f0;">
+    <h4>Endpoint Information</h4>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><b>URL:</b> <code>/predict</code></li>
+      <li><b>Method:</b> <span style="color: blue;">POST</span></li>
+      <li><b>Content-Type:</b> multipart/form-data</li>
+      <li><b>Auth Required:</b> No</li>
+      <li><b>Rate Limit:</b> 60 requests/min</li>
+    </ul>
+    
+    <h5>Parameters:</h5>
+    <ul style="list-style-type: none; padding-left: 0;">
+      <li><b>file</b> (required)</li>
+      <ul>
+        <li>The image file to analyze</li>
+        <li>Supported formats: JPG, PNG, BMP</li>
+        <li>Max size: 10MB</li>
+      </ul>
+    </ul>
+  </div>
+  <div style="width: 70%; padding: 15px;">
+    <h4>Description</h4>
+    <p>The main endpoint for detecting objects in images. Send an image file, and the API will return a list of detected objects with their coordinates, class, and confidence scores.</p>
+    
+    <h5>Success Response Example:</h5>
+    <pre style="background-color: #f8f9fa; padding: 10px; border-radius: 5px;"><code>{
   "status": "success",
   "message": "Image processed successfully",
   "detections": [
@@ -294,71 +572,88 @@ The main endpoint for detecting objects in images.
     }
   ],
   "count": 2
-}
-```
-
-- **Error Response Examples**:
-
-```json
-{
+}</code></pre>
+    
+    <h5>Error Response Examples:</h5>
+    <div style="display: flex; gap: 10px;">
+      <div style="flex: 1;">
+        <pre style="background-color: #fff5f5; padding: 10px; border-radius: 5px; border-left: 3px solid #f56565;"><code>{
   "error": "No file part"
-}
-```
-
-```json
-{
+}</code></pre>
+      </div>
+      <div style="flex: 1;">
+        <pre style="background-color: #fff5f5; padding: 10px; border-radius: 5px; border-left: 3px solid #f56565;"><code>{
   "error": "Model is still loading"
-}
-```
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</div>
 
-```json
-{
-  "error": "Model failed to load: [error details]"
-}
-```
+### 🧪 API Usage Examples
 
-### API Usage Examples
-
-#### Using cURL
-
-```bash
-curl -X POST -F "file=@path/to/image.jpg" http://localhost:8000/predict
-```
-
-#### Using Python with Requests
-
-```python
-import requests
+<div style="display: flex; gap: 20px; margin-bottom: 20px;">
+  <div style="flex: 1; background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+    <h4>Using cURL</h4>
+    <pre style="background-color: #2d3748; color: #e2e8f0; padding: 10px; border-radius: 5px; overflow-x: auto;"><code>curl -X POST \
+  -F "file=@path/to/image.jpg" \
+  http://localhost:8000/predict</code></pre>
+  </div>
+  
+  <div style="flex: 1; background-color: #f8f9fa; padding: 15px; border-radius: 5px;">
+    <h4>Using Python with Requests</h4>
+    <pre style="background-color: #2d3748; color: #e2e8f0; padding: 10px; border-radius: 5px; overflow-x: auto;"><code>import requests
 
 url = "http://localhost:8000/predict"
 image_path = "path/to/image.jpg"
 
 with open(image_path, "rb") as image_file:
-    files = {"file": image_file}
-    response = requests.post(url, files=files)
+files = {"file": image_file}
+response = requests.post(url, files=files)
 
-print(response.json())
-```
+print(response.json())</code></pre>
 
-#### Using JavaScript/Fetch API
+  </div>
+</div>
 
-```javascript
-// Using FormData and fetch
+<div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+  <h4>Using JavaScript/Fetch API</h4>
+  <pre style="background-color: #2d3748; color: #e2e8f0; padding: 10px; border-radius: 5px; overflow-x: auto;"><code>// Using FormData and fetch
 const imageInput = document.getElementById("imageInput");
 const formData = new FormData();
 formData.append("file", imageInput.files[0]);
 
 fetch("http://localhost:8000/predict", {
-  method: "POST",
-  body: formData,
+method: "POST",
+body: formData,
 })
-  .then((response) => response.json())
-  .then((data) => {
-    console.log(data);
-    // Process detection results
-  })
-  .catch((error) => console.error("Error:", error));
-```
+.then((response) => response.json())
+.then((data) => {
+console.log(data);
+// Process detection results
+})
+.catch((error) => console.error("Error:", error));</code></pre>
+
+</div>
+
+### 📊 Response Format Explanation
+
+<div style="background-color: #f0fff4; border-left: 4px solid #68d391; padding: 15px; margin: 20px 0; border-radius: 3px;">
+  <h4>Detection Result Fields</h4>
+  <ul>
+    <li><code>class</code>: Numerical class ID as defined in the COCO dataset (0-79)</li>
+    <li><code>name</code>: Human-readable class name (e.g., "person", "car")</li>
+    <li><code>confidence</code>: Detection confidence score between 0 and 1</li>
+    <li><code>xmin, ymin</code>: Top-left coordinates of the bounding box</li>
+    <li><code>xmax, ymax</code>: Bottom-right coordinates of the bounding box</li>
+  </ul>
+  <p><b>Note:</b> Coordinates are returned in the original image's coordinate system, not the 640x640 coordinate system used internally by the model.</p>
+</div>
+
+<div style="background-color: #ebf8ff; border-left: 4px solid #4299e1; padding: 15px; margin: 20px 0; border-radius: 3px;">
+  <h4>💡 Pro Tip</h4>
+  <p>For batch processing of multiple images, consider implementing a client-side queue to avoid overwhelming the API with too many simultaneous requests.</p>
+</div>
 
 <br>
 
@@ -768,77 +1063,177 @@ Modify the script to test different scenarios or endpoints.
 
 ## ❓ Frequently Asked Questions
 
-#### Q: What types of objects can the model detect?
-
-A: The model is trained on the COCO dataset and can detect 80 common object categories including people, vehicles, animals, furniture, and household items.
-
-#### Q: What image formats are supported?
-
-A: The API supports common image formats including JPEG, PNG, BMP, and GIF (first frame only).
-
-#### Q: What is the maximum image size supported?
-
-A: There is no hard limit on image size, but larger images will take longer to process. Images are resized to 640x640 pixels for processing, but the API returns coordinates mapped to the original image dimensions.
-
-#### Q: Where is the COCO dataset located in this project?
-
-A: The full COCO dataset used for training is located at `D:\NCT\NCT-2\S2\Capston\DataSets\COCO`.
-
-#### Q: Can I use this API in a commercial application?
-
-A: Yes, the project is licensed under the MIT License, which allows commercial use. However, be sure to check the licenses of all dependencies, especially the YOLOv5 model.
-
-#### Q: How many requests can the API handle per second?
-
-A: Performance depends on your deployment environment. On a standard Railway deployment, the API can handle approximately 10-20 requests per minute. For higher throughput, consider optimizing as described in the Performance section.
-
-#### Q: Can I deploy this on a Raspberry Pi or other edge devices?
-
-A: Yes, but you may need to optimize the model further. Consider using YOLOv5s or even smaller variants like YOLOv5n for edge deployment.
-
-#### Q: How do I update the model with my own custom-trained weights?
-
-A: Replace the `best.pt` file with your custom-trained weights. Ensure your model follows the same YOLOv5 architecture and update the class names in your code if they differ from COCO.
-
-<br>
+<div style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 30px;">
+  <h3 style="border-bottom: 2px solid #4a5568; padding-bottom: 10px; margin-top: 0;">Most Common Questions</h3>
+  
+  <div style="margin-top: 20px;">
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        What types of objects can the model detect?
+      </h4>
+      <p style="margin-bottom: 0;">The model is trained on the COCO dataset and can detect 80 common object categories including people, vehicles, animals, furniture, and household items. See the <a href="#-dataset-information">Dataset Information</a> section for a complete list of categories.</p>
+    </div>
+    
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        What image formats are supported?
+      </h4>
+      <p style="margin-bottom: 0;">The API supports common image formats including JPEG, PNG, BMP, and GIF (first frame only). For best results, use uncompressed or lightly compressed images to preserve details important for detection.</p>
+    </div>
+    
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        What is the maximum image size supported?
+      </h4>
+      <p style="margin-bottom: 0;">There is no hard limit on image size, but larger images will take longer to process. Images are resized to 640x640 pixels for processing, but the API returns coordinates mapped to the original image dimensions. For optimal performance, we recommend keeping images under 10MB.</p>
+    </div>
+    
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        Where is the COCO dataset located in this project?
+      </h4>
+      <p style="margin-bottom: 0;">The full COCO dataset used for training is located at <code>D:\NCT\NCT-2\S2\Capston\DataSets\COCO</code>. This path is referenced in the configuration files for training and evaluation.</p>
+    </div>
+  </div>
+  
+  <div style="margin-top: 20px;">
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        Can I use this API in a commercial application?
+      </h4>
+      <p style="margin-bottom: 0;">Yes, the project is licensed under the MIT License, which allows commercial use. However, be sure to check the licenses of all dependencies, especially the YOLOv5 model, which is released under the GPL-3.0 license by Ultralytics.</p>
+    </div>
+    
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        How many requests can the API handle per second?
+      </h4>
+      <p style="margin-bottom: 0;">Performance depends on your deployment environment. On a standard Railway deployment, the API can handle approximately 10-20 requests per minute. For higher throughput, consider optimizing as described in the <a href="#-performance-optimization">Performance Optimization</a> section or deploying multiple instances behind a load balancer.</p>
+    </div>
+    
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        Can I deploy this on a Raspberry Pi or other edge devices?
+      </h4>
+      <p style="margin-bottom: 0;">Yes, but you may need to optimize the model further. Consider using YOLOv5s or even smaller variants like YOLOv5n for edge deployment. You can also quantize the model to reduce its size and increase inference speed on resource-constrained devices.</p>
+    </div>
+    
+    <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        How do I update the model with my own custom-trained weights?
+      </h4>
+      <p style="margin-bottom: 0;">Replace the <code>best.pt</code> file with your custom-trained weights. Ensure your model follows the same YOLOv5 architecture and update the class names in your code if they differ from COCO. If your model has a different architecture, you may need to modify the model loading and inference code accordingly.</p>
+    </div>
+  </div>
+</div>
 
 ## 👥 Contributing
 
-We welcome contributions to improve the YOLOv5 Object Detection API!
-
-### Ways to Contribute
-
-1. **Report Bugs**: Open an issue describing the bug and steps to reproduce
-2. **Suggest Features**: Open an issue describing the new feature
-3. **Submit Pull Requests**: Implement bug fixes or new features
-
-### Development Workflow
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit your changes (`git commit -m 'Add some amazing feature'`)
-5. Push to the branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
-
-### Code Style Guidelines
-
-- Follow PEP 8 Python style guidelines
-- Include docstrings for all functions and classes
-- Add comments for complex code segments
-- Write unit tests for new features
+<div style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; margin-bottom: 30px;">
+  <h3 style="border-bottom: 2px solid #4a5568; padding-bottom: 10px; margin-top: 0;">Join Our Community</h3>
+  
+  <p>We welcome contributions to improve the YOLOv5 Object Detection API! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.</p>
+  
+  <div style="display: flex; gap: 20px; margin-top: 20px;">
+    <div style="flex: 1; background-color: #fff; border-radius: 8px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">Ways to Contribute</h4>
+      <ul style="padding-left: 20px; margin-bottom: 0;">
+        <li><b>Report Bugs</b>: Open an issue describing the bug and steps to reproduce</li>
+        <li><b>Suggest Features</b>: Open an issue describing the new feature</li>
+        <li><b>Submit Pull Requests</b>: Implement bug fixes or new features</li>
+        <li><b>Improve Documentation</b>: Fix errors or add examples to the docs</li>
+        <li><b>Share Feedback</b>: Help us understand how you're using the API</li>
+      </ul>
+    </div>
+    
+    <div style="flex: 1; background-color: #fff; border-radius: 8px; padding: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+      <h4 style="margin-top: 0; color: #4a5568;">Development Workflow</h4>
+      <ol style="padding-left: 20px; margin-bottom: 0;">
+        <li>Fork the repository</li>
+        <li>Create a feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>
+        <li>Make your changes</li>
+        <li>Commit your changes (<code>git commit -m 'Add some amazing feature'</code>)</li>
+        <li>Push to the branch (<code>git push origin feature/amazing-feature</code>)</li>
+        <li>Open a Pull Request</li>
+      </ol>
+    </div>
+  </div>
+  
+  <div style="background-color: #fff; border-radius: 8px; padding: 15px; margin-top: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+    <h4 style="margin-top: 0; color: #4a5568;">Code Style Guidelines</h4>
+    <div style="display: flex; gap: 20px;">
+      <div style="flex: 1;">
+        <ul style="padding-left: 20px; margin-bottom: 0;">
+          <li>Follow PEP 8 Python style guidelines</li>
+          <li>Include docstrings for all functions and classes</li>
+          <li>Add comments for complex code segments</li>
+        </ul>
+      </div>
+      <div style="flex: 1;">
+        <ul style="padding-left: 20px; margin-bottom: 0;">
+          <li>Write unit tests for new features</li>
+          <li>Keep functions focused and modular</li>
+          <li>Use type hints where appropriate</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 <br>
 
 ---
 
-<div align="center">
-  <p>
-    <b>YOLOv5 Object Detection API</b><br>
-    Developed as a Capstone Project - NCT 2025
-  </p>
-  <p>
-    <a href="https://github.com/7efnawi/OD-Model">GitHub Repository</a> |
-    <a href="https://github.com/7efnawi/OD-Model/issues">Report Issues</a>
+<div align="center" style="margin-top: 50px; margin-bottom: 50px;">
+  <img src="https://i.imgur.com/bPUGhBZ.png" width="150" alt="YOLOv5 Logo">
+  
+  <h2>YOLOv5 Object Detection API</h2>
+  <p style="font-size: 1.2em; color: #4a5568;">Developed as a Capstone Project - NCT 2025</p>
+  
+  <div style="margin-top: 20px;">
+    <a href="https://github.com/7efnawi/OD-Model" style="text-decoration: none; background-color: #4a5568; color: white; padding: 10px 20px; border-radius: 5px; margin-right: 10px;">
+      GitHub Repository
+    </a>
+    <a href="https://github.com/7efnawi/OD-Model/issues" style="text-decoration: none; background-color: #e53e3e; color: white; padding: 10px 20px; border-radius: 5px;">
+      Report Issues
+    </a>
+  </div>
+  
+  <p style="margin-top: 30px; font-style: italic; color: #718096;">
+    "The best way to detect objects is to let the machine do the seeing, and the human do the understanding."
   </p>
 </div>
+
+<!-- Quick Navigation -->
+<div style="position: fixed; right: 20px; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.9); border-radius: 10px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); display: none;">
+  <h4 style="margin-top: 0; margin-bottom: 10px; text-align: center; color: #4a5568; font-size: 14px;">Quick Nav</h4>
+  <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0; font-size: 12px;">
+    <li style="margin-bottom: 5px;"><a href="#-introduction" style="text-decoration: none; color: #4a5568;">🔍 Introduction</a></li>
+    <li style="margin-bottom: 5px;"><a href="#-system-architecture" style="text-decoration: none; color: #4a5568;">🏗 Architecture</a></li>
+    <li style="margin-bottom: 5px;"><a href="#-installation-guide" style="text-decoration: none; color: #4a5568;">🛠️ Installation</a></li>
+    <li style="margin-bottom: 5px;"><a href="#-api-reference" style="text-decoration: none; color: #4a5568;">🔌 API Reference</a></li>
+    <li style="margin-bottom: 5px;"><a href="#-troubleshooting" style="text-decoration: none; color: #4a5568;">🛑 Troubleshooting</a></li>
+  </ul>
+</div>
+
+<script>
+  // This will only work if the markdown is rendered in a browser environment
+  window.addEventListener('scroll', function() {
+    const quickNav = document.querySelector('div[style*="position: fixed"]');
+    if (quickNav) {
+      if (window.scrollY > 300) {
+        quickNav.style.display = 'block';
+      } else {
+        quickNav.style.display = 'none';
+      }
+    }
+  });
+</script>
